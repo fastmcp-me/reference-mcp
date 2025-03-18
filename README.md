@@ -1,5 +1,6 @@
 # cite-mcp MCP server
 
+[![smithery badge](https://smithery.ai/badge/@ndchikin/cite-mcp)](https://smithery.ai/server/@ndchikin/cite-mcp)
 Get citation data from CiteAs and Google Scholar
 
 ## Components
@@ -49,6 +50,14 @@ Published Servers Configuration:
     ]
   }
 }
+```
+
+### Installing via Smithery
+
+To install cite-mcp for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@ndchikin/cite-mcp):
+
+```bash
+npx -y @smithery/cli install @ndchikin/cite-mcp --client claude
 ```
 
 ## Development
