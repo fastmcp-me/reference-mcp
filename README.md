@@ -4,29 +4,13 @@ Get citation data from CiteAs and Google Scholar
 
 ## Components
 
-### Resources
-
-The server implements a simple note storage system with:
-- Custom note:// URI scheme for accessing individual notes
-- Each note resource has a name, description and text/plain mimetype
-
-### Prompts
-
-The server provides a single prompt:
-- summarize-notes: Creates summaries of all stored notes
-  - Optional "style" argument to control detail level (brief/detailed)
-  - Generates prompt combining all current notes with style preference
-
 ### Tools
 
-The server implements one tool:
-- add-note: Adds a new note to the server
-  - Takes "name" and "content" as required string arguments
-  - Updates server state and notifies clients of resource changes
-
-## Configuration
-
-[TODO: Add configuration details specific to your implementation]
+* `get_citeas_data` - Retrieve BibTeX-formatted citation for the specified resource from the CiteAs
+  * `resource` (string, required): DOI, URL, keyword
+* `get_scholar_data` - Retrieve BibTeX-formatted citations from the Google Scholar
+  * `query` (string, required): Search query
+  * `results` (integer, optional): Number of results (default: 2)
 
 ## Quickstart
 
@@ -35,38 +19,37 @@ The server implements one tool:
 #### Claude Desktop
 
 On MacOS: `~/Library/Application\ Support/Claude/claude_desktop_config.json`
+
 On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
 
-<details>
-  <summary>Development/Unpublished Servers Configuration</summary>
-  ```
-  "mcpServers": {
-    "cite-mcp": {
-      "command": "uv",
-      "args": [
-        "--directory",
-        "/home/ndchikin/unige_hw/openai/cite-mcp",
-        "run",
-        "cite-mcp"
-      ]
-    }
-  }
-  ```
-</details>
+Development/Unpublished Servers Configuration:
 
-<details>
-  <summary>Published Servers Configuration</summary>
-  ```
-  "mcpServers": {
-    "cite-mcp": {
-      "command": "uvx",
-      "args": [
-        "cite-mcp"
-      ]
-    }
+```json
+"mcpServers": {
+  "cite-mcp": {
+    "command": "uv",
+    "args": [
+      "--directory",
+      "/path/to/project/dir",
+      "run",
+      "cite-mcp"
+    ]
   }
-  ```
-</details>
+}
+```
+
+Published Servers Configuration:
+
+```json
+"mcpServers": {
+  "cite-mcp": {
+    "command": "uvx",
+    "args": [
+      "cite-mcp"
+    ]
+  }
+}
+```
 
 ## Development
 
@@ -100,12 +83,10 @@ Note: You'll need to set PyPI credentials via environment variables or command f
 Since MCP servers run over stdio, debugging can be challenging. For the best debugging
 experience, we strongly recommend using the [MCP Inspector](https://github.com/modelcontextprotocol/inspector).
 
-
 You can launch the MCP Inspector via [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) with this command:
 
 ```bash
-npx @modelcontextprotocol/inspector uv --directory /home/ndchikin/unige_hw/openai/cite-mcp run cite-mcp
+npx @modelcontextprotocol/inspector uv --directory /path/to/project/dir run cite-mcp
 ```
-
 
 Upon launching, the Inspector will display a URL that you can access in your browser to begin debugging.
