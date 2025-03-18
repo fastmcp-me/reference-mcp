@@ -1,7 +1,8 @@
-# cite-mcp MCP server
+# CiteAssist MCP server
 
-[![smithery badge](https://smithery.ai/badge/@ndchikin/cite-mcp)](https://smithery.ai/server/@ndchikin/cite-mcp)
-Get citation data from CiteAs and Google Scholar
+[![smithery badge](https://smithery.ai/badge/@ndchikin/reference-mcp)](https://smithery.ai/server/@ndchikin/reference-mcp)
+
+A Model Context Protocol server that provides BibTeX-formatted citation data from CiteAs and Google Scholar
 
 ## Components
 
@@ -27,13 +28,13 @@ Development/Unpublished Servers Configuration:
 
 ```json
 "mcpServers": {
-  "cite-mcp": {
+  "reference-mcp": {
     "command": "uv",
     "args": [
       "--directory",
       "/path/to/project/dir",
       "run",
-      "cite-mcp"
+      "reference-mcp"
     ]
   }
 }
@@ -43,10 +44,10 @@ Published Servers Configuration:
 
 ```json
 "mcpServers": {
-  "cite-mcp": {
+  "reference-mcp": {
     "command": "uvx",
     "args": [
-      "cite-mcp"
+      "reference-mcp"
     ]
   }
 }
@@ -54,10 +55,10 @@ Published Servers Configuration:
 
 ### Installing via Smithery
 
-To install cite-mcp for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@ndchikin/cite-mcp):
+To install reference-mcp for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@ndchikin/reference-mcp):
 
 ```bash
-npx -y @smithery/cli install @ndchikin/cite-mcp --client claude
+npx -y @smithery/cli install @ndchikin/reference-mcp --client claude
 ```
 
 ## Development
@@ -95,7 +96,7 @@ experience, we strongly recommend using the [MCP Inspector](https://github.com/m
 You can launch the MCP Inspector via [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) with this command:
 
 ```bash
-npx @modelcontextprotocol/inspector uv --directory /path/to/project/dir run cite-mcp
+npx @modelcontextprotocol/inspector uv --directory /path/to/project/dir run reference-mcp
 ```
 
 Upon launching, the Inspector will display a URL that you can access in your browser to begin debugging.

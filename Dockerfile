@@ -23,4 +23,4 @@ RUN pip install --no-cache-dir -e .
 # Expose stdio; in MCP servers, stdio is used by default
 
 # Default command to run the MCP server
-CMD ["cite-mcp"]
+CMD ["reference-mcp"]
